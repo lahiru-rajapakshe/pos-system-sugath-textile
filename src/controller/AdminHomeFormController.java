@@ -37,16 +37,16 @@ public class AdminHomeFormController {
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
         if(timeOfDay >= 0 && timeOfDay < 12){
-            System.out.println("Good Morning 1");
+
             lblGreeting.setText("Good Morning MR. Sugath");
         }else if(timeOfDay >= 12 && timeOfDay < 16){
-            System.out.println("Good Morning 2");
+
             lblGreeting.setText("Good Afternoon MR. Sugath");
         }else if(timeOfDay >= 16 && timeOfDay < 21){
-            System.out.println("Good Morning 3");
+
             lblGreeting.setText("Good Evening MR. Sugath");
         }else if(timeOfDay >= 21 && timeOfDay < 24){
-            System.out.println("Good Morning 4");
+
             lblGreeting.setText("Good Night MR. Sugath");
         }
     }
