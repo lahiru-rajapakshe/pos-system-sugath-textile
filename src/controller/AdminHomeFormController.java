@@ -4,14 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Calendar;
 
 public class AdminHomeFormController {
     public Button btnChangePassword;
+    public Label lblGreeting;
 
+    public void initialize(){
+        getTimeFromAndroid();
+    }
     public void btnChangePassword_OnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/ChangePassword.fxml"));
@@ -24,4 +31,24 @@ public class AdminHomeFormController {
 
         stage.show();
     }
+
+    private void getTimeFromAndroid() {
+        Calendar c = Calendar.getInstance();
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
+
+        if(timeOfDay >= 0 && timeOfDay < 12){
+            System.out.println("Good Morning 1");
+            lblGreeting.setText("Good Morning MR. Sugath");
+        }else if(timeOfDay >= 12 && timeOfDay < 16){
+            System.out.println("Good Morning 2");
+            lblGreeting.setText("Good Afternoon MR. Sugath");
+        }else if(timeOfDay >= 16 && timeOfDay < 21){
+            System.out.println("Good Morning 3");
+            lblGreeting.setText("Good Evening MR. Sugath");
+        }else if(timeOfDay >= 21 && timeOfDay < 24){
+            System.out.println("Good Morning 4");
+            lblGreeting.setText("Good Night MR. Sugath");
+        }
+    }
+
 }
