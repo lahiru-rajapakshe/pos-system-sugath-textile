@@ -6,10 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import db.DBConnection;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import security.Principal;
+import security.SecurityContextHolder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +22,7 @@ public class LoginUI {
 
     public TextField txtUserName;
     public PasswordField txtPassword;
+    public Button btnSignIn;
 
     public void initialize() {
 
