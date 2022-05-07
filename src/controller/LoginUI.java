@@ -11,6 +11,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lib.util.DepAlert;
+import security.Principal;
+import security.SecurityContextHolder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +33,7 @@ LoginUI {
     public void btnSignIn_OnAction(ActionEvent actionEvent) {
 
         if (!isValidated()){
-//            new DepAlert(Alert.AlertType.ERROR, "Invalid username or password", "Invalid credentials").show();
+//          new DepAlert(Alert.AlertType.ERROR, "Invalid username or password", "Invalid credentials").show();
 
 
 
@@ -55,14 +58,17 @@ LoginUI {
 
                 if (rst.getString("role").equals("ADMIN")){
                     path = "/view/AdminHomeForm.fxml";
+                    System.out.println("wade hari");
                 }else{
-                    path = "/view/UserHomeForm.fxml";
+//                    path = "/view/UserHomeForm.fxml";
+
+                    System.out.println("deweni wadeth hari");
                 }
                 FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource(path));
                 AnchorPane root = fxmlLoader.load();
                 Scene homeScene = new Scene(root);
                 Stage primaryStage = (Stage)(btnSignIn.getScene().getWindow());
-                homeScene.getStylesheets().add("view/style/userHomeStyles.css");
+//                homeScene.getStylesheets().add("view/style/userHomeStyles.css");
                 primaryStage.setScene(homeScene);
                 primaryStage.setTitle("Student Attendance System: Home");
                 Platform.runLater(()-> {
