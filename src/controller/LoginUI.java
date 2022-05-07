@@ -56,7 +56,7 @@ public class LoginUI {
                 String path = null;
 
                 if (rst.getString("role").equals("ADMIN")){
-//                    path = "/view/AdminHomeForm.fxml";
+                    path = "/view/AdminHomeForm.fxml";
                     System.out.println("wade hari");
                 }else{
 //                    path = "/view/UserHomeForm.fxml";
@@ -67,7 +67,7 @@ public class LoginUI {
                 AnchorPane root = fxmlLoader.load();
                 Scene homeScene = new Scene(root);
                 Stage primaryStage = (Stage)(btnSignIn.getScene().getWindow());
-                homeScene.getStylesheets().add("view/style/userHomeStyles.css");
+//                homeScene.getStylesheets().add("view/style/userHomeStyles.css");
                 primaryStage.setScene(homeScene);
                 primaryStage.setTitle("Student Attendance System: Home");
                 Platform.runLater(()-> {
