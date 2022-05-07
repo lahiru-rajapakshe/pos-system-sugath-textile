@@ -93,7 +93,7 @@ public class SplashScreenFormController {
 //            stage.style("hover:-fx-background-color: #101010");
             stage.setTitle("Student Attendance System: Log In");
 //            scene.getStylesheets().add("view/style/loginStyles.css");
-            stage.initStyle(StageStyle.TRANSPARENT);
+//            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setResizable(false);
             stage.centerOnScreen();
             stage.sizeToScene();
