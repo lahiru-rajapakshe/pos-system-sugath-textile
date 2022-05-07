@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lib.util.DepAlert;
 import security.Principal;
 import security.SecurityContextHolder;
 
@@ -31,7 +32,7 @@ public class LoginUI {
     public void btnSignIn_OnAction(ActionEvent actionEvent) {
 
         if (!isValidated()){
-//            new DepAlert(Alert.AlertType.ERROR, "Invalid username or password", "Invalid credentials").show();
+//          new DepAlert(Alert.AlertType.ERROR, "Invalid username or password", "Invalid credentials").show();
 
 
 
@@ -55,9 +56,12 @@ public class LoginUI {
                 String path = null;
 
                 if (rst.getString("role").equals("ADMIN")){
-                    path = "/view/AdminHomeForm.fxml";
+//                    path = "/view/AdminHomeForm.fxml";
+                    System.out.println("wade hari");
                 }else{
-                    path = "/view/UserHomeForm.fxml";
+//                    path = "/view/UserHomeForm.fxml";
+
+                    System.out.println("deweni wadeth hari");
                 }
                 FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource(path));
                 AnchorPane root = fxmlLoader.load();
