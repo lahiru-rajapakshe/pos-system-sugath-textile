@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lib.util.DepAlert;
@@ -25,6 +26,7 @@ LoginUI {
     public TextField txtUserName;
     public PasswordField txtPassword;
     public Button btnSignIn;
+    public AnchorPane btnForgotPassword;
 
     public void initialize() {
 
@@ -95,5 +97,8 @@ LoginUI {
 
     public void btnClose_OnAction(ActionEvent event) {
         Platform.exit();
+    }
+
+    public void btnForgotPassword_OnAction(MouseEvent mouseEvent) {
     }
 }

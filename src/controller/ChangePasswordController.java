@@ -48,15 +48,23 @@ public class ChangePasswordController {
 
                 String newPassword = txtNewPassword.getText().trim();
                 String newPasswordAgain = txtNewpasswordAgain.getText().trim();
+                String hint = txtHint.getText();
+
+
 
                 if(newPassword.equals(newPasswordAgain)){
                      connection = DBConnection.getInstance().getConnection();
                     PreparedStatement stm2 = null;
-                    stm2 = connection.prepareStatement("UPDATE user SET password=? WHERE role='ADMIN';");
+                    stm2 = connection.prepareStatement("UPDATE user SET password=?, hint=? WHERE role='ADMIN';");
 
 
                     stm2.setString(1, txtNewpasswordAgain.getText().trim());
-                    stm2.execute();
+                    stm2.setString(2,txtHint.getText().trim());
+                   stm2.execute();
+
+                    if(stm2.execute()==true){
+                        System.out.println("password update kara");
+                    }
                 }
 
         }
@@ -64,4 +72,8 @@ public class ChangePasswordController {
     } catch (SQLException e) {
             e.printStackTrace();
         }
-    }}
+    }
+
+    public void txtHint_OnAction(ActionEvent event) {
+    }
+}
