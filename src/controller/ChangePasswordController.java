@@ -36,7 +36,7 @@ public class ChangePasswordController {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement stm = null;
-            stm = connection.prepareStatement("SELECT * FROM user WHERE  password=?");
+            stm = connection.prepareStatement("SELECT * FROM user WHERE  password=? and role='ADMIN'");
 
 
             stm.setString(1, txtCurrentPassword.getText().trim());
@@ -46,6 +46,18 @@ public class ChangePasswordController {
             if (rst.next()){
                 System.out.println("password ok");
 
+                String newPassword = txtNewPassword.getText().trim();
+                String newPasswordAgain = txtNewpasswordAgain.getText().trim();
+
+                if(newPassword.equals(newPasswordAgain)){
+                     connection = DBConnection.getInstance().getConnection();
+                    PreparedStatement stm2 = null;
+                    stm2 = connection.prepareStatement("UPDATE user SET password=? WHERE role='ADMIN';");
+
+
+                    stm2.setString(1, txtNewpasswordAgain.getText().trim());
+                    stm2.execute();
+                }
 
         }
 
