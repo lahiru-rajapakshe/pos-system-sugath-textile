@@ -15,6 +15,7 @@ import java.util.Calendar;
 public class AdminHomeFormController {
     public Button btnChangePassword;
     public Label lblGreeting;
+    public Button btnAddProduct;
 
     public void initialize(){
 
@@ -54,4 +55,6 @@ public class AdminHomeFormController {
         }
     }
 
+    public void btnAddProduct_OnAction(ActionEvent event) {
+    }
 }
