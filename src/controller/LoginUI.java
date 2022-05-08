@@ -9,12 +9,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lib.util.DepAlert;
 import security.Principal;
 import security.SecurityContextHolder;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +27,7 @@ LoginUI {
     public TextField txtUserName;
     public PasswordField txtPassword;
     public Button btnSignIn;
+    public AnchorPane btnForgotPassword;
 
     public void initialize() {
 
@@ -95,5 +98,23 @@ LoginUI {
 
     public void btnClose_OnAction(ActionEvent event) {
         Platform.exit();
+    }
+
+    public void btnForgotPassword_OnAction(MouseEvent mouseEvent) throws IOException {
+
+
+    }
+
+    public void btnForgotPassword(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/ForgotPasswordForm.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("pos sugath: Create Admin");
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.sizeToScene();
+
+        stage.show();
     }
 }
