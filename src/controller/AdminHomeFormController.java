@@ -17,7 +17,10 @@ public class AdminHomeFormController {
     public Label lblGreeting;
 
     public void initialize(){
+
         getTimeFromAndroid();
+
+
     }
     public void btnChangePassword_OnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();

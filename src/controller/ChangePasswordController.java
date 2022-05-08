@@ -47,7 +47,8 @@ public class ChangePasswordController {
                 System.out.println("password ok");
 
 
-        }
+
+            }
 
     } catch (SQLException e) {
             e.printStackTrace();
