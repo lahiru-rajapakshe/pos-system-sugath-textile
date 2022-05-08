@@ -55,6 +55,16 @@ public class AdminHomeFormController {
         }
     }
 
-    public void btnAddProduct_OnAction(ActionEvent event) {
+    public void btnAddProduct_OnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/AddProduct.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Student Attendance System: Create Admin");
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.sizeToScene();
+
+        stage.show();
     }
 }
