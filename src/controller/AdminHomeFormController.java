@@ -16,6 +16,11 @@ public class AdminHomeFormController {
     public Button btnChangePassword;
     public Label lblGreeting;
     public Button btnAddProduct;
+    public Label lblProductId;
+    public AnchorPane ancShowData;
+    public Label lblProductName;
+    public Label lblProductCategory;
+    public Label lblProductPrice;
 
     public void initialize(){
 

@@ -6,8 +6,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminHomeFormController">
    <children>
-      <Button fx:id="btnChangePassword" layoutX="57.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnChangePassword_OnAction" text="Change Password" />
+      <Button fx:id="btnChangePassword" layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnChangePassword_OnAction" text="Change Password" />
       <Label fx:id="lblGreeting" layoutX="139.0" layoutY="29.0" text="Label" />
-      <Button fx:id="btnAddProduct" layoutX="251.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnAddProduct_OnAction" text="Add a product" />
+      <Button fx:id="btnAddProduct" layoutX="14.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnAddProduct_OnAction" text="Add a product" />
+      <AnchorPane fx:id="ancShowData" layoutX="157.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray;">
+         <children>
+            <Label fx:id="lblProductId" layoutX="14.0" layoutY="14.0" text="Label" />
+            <Label fx:id="lblProductName" layoutX="14.0" layoutY="45.0" text="Label" />
+            <Label fx:id="lblProductCategory" layoutX="14.0" layoutY="78.0" text="Label" />
+            <Label fx:id="lblProductPrice" layoutX="14.0" layoutY="115.0" text="Label" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
