@@ -23,6 +23,7 @@ public class AdminHomeFormController {
     public Label lblProductName;
     public Label lblProductCategory;
     public Label lblProductPrice;
+    public Button btnOrder;
 
     public void initialize(){
 
@@ -49,7 +50,7 @@ public class AdminHomeFormController {
 
 
             }else{
-                System.out.println("wade awlak thiyenawa");
+                System.out.println("data retrive wenne na,awlak thiyenawa");
             }
 
 
@@ -104,5 +105,8 @@ public class AdminHomeFormController {
         stage.sizeToScene();
 
         stage.show();
+    }
+
+    public void btnOrder_OnAction(ActionEvent event) {
     }
 }
