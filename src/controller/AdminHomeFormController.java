@@ -1,5 +1,6 @@
 package controller;
 
+import db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.sql.*;
 import java.util.Calendar;
 
 public class AdminHomeFormController {
@@ -17,9 +18,46 @@ public class AdminHomeFormController {
     public Label lblGreeting;
     public Button btnAddProduct;
 
+    public Label lblProductId;
+    public AnchorPane ancShowData;
+    public Label lblProductName;
+    public Label lblProductCategory;
+    public Label lblProductPrice;
+
     public void initialize(){
 
         getTimeFromAndroid();
+
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement stm = null;
+            stm = connection.prepareStatement("SELECT product_name,product_category,product_price FROM product WHERE product_id=6 ");
+
+            ResultSet rst = stm.executeQuery();
+
+
+            if(rst.next()){
+
+                String p_name = rst.getString("product_name");
+                String p_category = rst.getString("product_category");
+                String p_price = rst.getString("product_price");
+
+                lblProductName.setText(p_name);
+                lblProductCategory.setText(p_category);
+                lblProductPrice.setText(p_price);
+
+
+            }else{
+                System.out.println("wade awlak thiyenawa");
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
 
 
     }
