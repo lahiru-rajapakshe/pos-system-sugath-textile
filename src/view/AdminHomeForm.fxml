@@ -15,6 +15,7 @@
             <Label fx:id="lblProductName" layoutX="14.0" layoutY="45.0" text="Label" />
             <Label fx:id="lblProductCategory" layoutX="14.0" layoutY="78.0" text="Label" />
             <Label fx:id="lblProductPrice" layoutX="14.0" layoutY="115.0" text="Label" />
+            <Button fx:id="btnOrder" layoutX="100.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnOrder_OnAction" text="Order" />
          </children>
       </AnchorPane>
    </children>

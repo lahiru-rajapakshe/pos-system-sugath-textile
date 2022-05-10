@@ -23,6 +23,7 @@ public class AdminHomeFormController {
     public Label lblProductName;
     public Label lblProductCategory;
     public Label lblProductPrice;
+    public Button btnOrder;
 
     public void initialize(){
 
@@ -49,7 +50,7 @@ public class AdminHomeFormController {
 
 
             }else{
-                System.out.println("wade awlak thiyenawa");
+                System.out.println("data retrive wenne na,awlak thiyenawa");
             }
 
 
@@ -96,6 +97,20 @@ public class AdminHomeFormController {
     public void btnAddProduct_OnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/AddProduct.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Student Attendance System: Create Admin");
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.sizeToScene();
+
+        stage.show();
+    }
+
+    public void btnOrder_OnAction(ActionEvent event) throws IOException {
+
+        Stage stage = new Stage();
+        AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/OrderForm.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Student Attendance System: Create Admin");
