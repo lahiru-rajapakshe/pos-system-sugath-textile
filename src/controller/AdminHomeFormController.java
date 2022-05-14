@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class AdminHomeFormController {
@@ -24,9 +25,10 @@ public class AdminHomeFormController {
     public Label lblProductCategory;
     public Label lblProductPrice;
     public Button btnOrder;
+    public Label lblTodaySales;
 
     public void initialize(){
-
+        today_sales();
         getTimeFromAndroid();
 
 
@@ -62,6 +64,27 @@ public class AdminHomeFormController {
 
 
     }
+
+    private void today_sales(){
+        try {
+            Date datea = Date.valueOf(LocalDate.now());
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement stm = null;
+            stm = connection.prepareStatement("SELECT price FROM todaySales WHERE date= ?");
+            stm.setString(1, String.valueOf(datea));
+            ResultSet rst = stm.executeQuery();
+
+            if(rst.next()){
+                String price = rst.getString("price");
+//                System.out.println(price);
+                lblTodaySales.setText(price);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void btnChangePassword_OnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         AnchorPane root = FXMLLoader.load(this.getClass().getResource("/view/ChangePassword.fxml"));
