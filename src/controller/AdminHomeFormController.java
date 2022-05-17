@@ -30,7 +30,7 @@ public class AdminHomeFormController {
     public void initialize(){
         today_sales();
         getTimeFromAndroid();
-
+        stock_avaliable();
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
@@ -86,6 +86,25 @@ public class AdminHomeFormController {
 
 
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void stock_avaliable(){
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement stm = null;
+
+            PreparedStatement stm2 = null;
+            stm2 = connection.prepareStatement("SELECT stock_avaliable AS GH FROM stock;");
+
+            ResultSet rst2 = stm2.executeQuery();
+
+            if(rst2.next()){
+                double stock_avaliable = rst2.getDouble("GH");
+                System.out.println(stock_avaliable);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
