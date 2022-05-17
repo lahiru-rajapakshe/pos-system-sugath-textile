@@ -70,15 +70,22 @@ public class AdminHomeFormController {
             Date datea = Date.valueOf(LocalDate.now());
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement stm = null;
-            stm = connection.prepareStatement("SELECT price FROM todaySales WHERE date= ?");
-            stm.setString(1, String.valueOf(datea));
-            ResultSet rst = stm.executeQuery();
 
-            if(rst.next()){
-                String price = rst.getString("price");
-//                System.out.println(price);
-                lblTodaySales.setText(price);
+            PreparedStatement stm2 = connection.prepareStatement("SELECT SUM(price) AS PRC FROM todaySales WHERE date =?");
+            stm2.setString(1, String.valueOf(datea));
+            ResultSet rst2 = stm2.executeQuery();
+            if(rst2.next()){
+
+                double prc = rst2.getDouble("PRC");
+
+//                System.out.println(prc);
+//                System.out.println(lblTodaySales.);
+                lblTodaySales.setText(String.valueOf(prc));
             }
+
+
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
