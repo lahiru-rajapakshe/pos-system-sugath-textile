@@ -26,6 +26,7 @@ public class AdminHomeFormController {
     public Label lblProductPrice;
     public Button btnOrder;
     public Label lblTodaySales;
+    public Label lblStockAvaliable;
 
     public void initialize(){
         today_sales();
@@ -103,7 +104,7 @@ public class AdminHomeFormController {
 
             if(rst2.next()){
                 double stock_avaliable = rst2.getDouble("GH");
-                System.out.println(stock_avaliable);
+                lblStockAvaliable.setText(String.valueOf(stock_avaliable));
             }
         } catch (SQLException e) {
             e.printStackTrace();
